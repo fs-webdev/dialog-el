@@ -128,9 +128,13 @@
         is: 'fs-dialog',
 
         properties: {
-          visible: {
+          allowArrowChange: {
             type: Boolean,
             value: false,
+            reflectToAttribute: true
+          },
+          arrowDirection: {
+            type: String,
             reflectToAttribute: true
           },
           hidden: {
@@ -143,17 +147,13 @@
             value: false,
             reflectToAttribute: true
           },
-          arrowDirection: {
-            type: String,
-            reflectToAttribute: true
+          originalArrowDirection: {
+            type: String
           },
-          allowArrowChange: {
+          visible: {
             type: Boolean,
             value: false,
             reflectToAttribute: true
-          },
-          originalArrowDirection: {
-            type: String
           },
           _overlay: {
             type: Object,
