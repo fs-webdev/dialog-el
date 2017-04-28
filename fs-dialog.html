@@ -137,6 +137,15 @@
             type: String,
             reflectToAttribute: true
           },
+          /**
+           * Close the dialog when scrolling the document.
+           * @type {Boolean}
+           */
+          closeOnScroll: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true
+          },
           hidden: {
             type: Boolean,
             value: true,
@@ -246,6 +255,15 @@
             this.dispatchEvent(new CustomEvent('dialog-opened', {
               bubbles: true,
             }));
+          }.bind(this))
+          .then(function() {
+            // this.closeOnScroll = this.dataHost.hasAttribute('close-on-scroll');
+
+  console.log("fs-dialog: this.closeOnScroll", this.closeOnScroll);
+            if (this.closeOnScroll) {
+  console.log("HERE");
+              document.addEventListener("scroll", this.close.bind(this));
+            }
           }.bind(this));
         },
         detached: function() {
@@ -281,6 +299,7 @@
           this.__handlers.forEach(function(obj) { obj.element.removeEventListener(obj.event, obj.handler) });
         },
         close: function() {
+console.log("CLOSE");
           return Promise.resolve()
           .then(function() {
             // Catch if the dialog already closed.
@@ -347,6 +366,10 @@
                 action: this._closeAction
               }
             }));
+          }.bind(this))
+          .then(function() {
+console.log("REMOVE");
+            document.removeEventListener("scroll", this.close.bind(this));
           }.bind(this))
           .catch(function(err){
             if (err && err.message !== 'already closed') {

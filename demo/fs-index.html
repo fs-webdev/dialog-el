@@ -30,7 +30,7 @@
 </head>
 
 <body class="centered">
-  <h3>By Default the <code>fs-dialog</code> renders an absolutely positioned dialog</h3>
+  <h3>By Default the <code>fs-dialog</code> renders an absolutely positioned dialog that does not close on scroll.</h3>
   <demo-snippet class="centered-demo">
     <template>
       <style>
@@ -185,6 +185,28 @@
     </template>
   </demo-snippet>
 
+  <h3>Add the 'close-on-scroll' attribute to make the dialog close on scroll.</h3>
+  <demo-snippet class="centered-demo">
+    <template>
+      <style>
+        .content {
+          width: 100vw;
+          max-width: 350px;
+        }
+      </style>
+
+      <div style='position: relative;'>
+        <paper-button raised onclick="dialog6.show()">Close on scroll</paper-button>
+
+        <fs-dialog id="dialog6" close-on-scroll>
+          <div class="content">
+            <h4>Dialog</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident et optio quo illum fugiat, distinctio quasi accusantium vel! Odit facilis obcaecati dignissimos provident suscipit tempore corrupti, impedit est sequi a.</p>
+          </div>
+        </fs-dialog>
+      </div>
+    </template>
+  </demo-snippet>
 </body>
 
 </html>
