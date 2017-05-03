@@ -37,5 +37,8 @@
     "test/",
     "test/*",
     "wct.conf.json"
-  ]
+  ],
+  "resolutions": {
+    "fetch": "~2.0.3"
+  }
 }

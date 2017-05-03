@@ -255,15 +255,6 @@
             this.dispatchEvent(new CustomEvent('dialog-opened', {
               bubbles: true,
             }));
-          }.bind(this))
-          .then(function() {
-            // this.closeOnScroll = this.dataHost.hasAttribute('close-on-scroll');
-
-  console.log("fs-dialog: this.closeOnScroll", this.closeOnScroll);
-            if (this.closeOnScroll) {
-  console.log("HERE");
-              document.addEventListener("scroll", this.close.bind(this));
-            }
           }.bind(this));
         },
         detached: function() {
@@ -295,11 +286,12 @@
           }
         },
         _detachEventHandlers: function() {
+console.log("DETACH EVENT HANDLERS");
           if (!Array.isArray(this.__handlers)) return;
           this.__handlers.forEach(function(obj) { obj.element.removeEventListener(obj.event, obj.handler) });
         },
         close: function() {
-console.log("CLOSE");
+console.log("CLOSE DIALOG");
           return Promise.resolve()
           .then(function() {
             // Catch if the dialog already closed.
@@ -367,10 +359,6 @@ console.log("CLOSE");
               }
             }));
           }.bind(this))
-          .then(function() {
-console.log("REMOVE");
-            document.removeEventListener("scroll", this.close.bind(this));
-          }.bind(this))
           .catch(function(err){
             if (err && err.message !== 'already closed') {
               console.error(err);
@@ -419,6 +407,17 @@ console.log("REMOVE");
               }
             }.bind(this)
           });
+
+          if (this.closeOnScroll) {
+console.log("ATTACH EVENT HANDLERS");
+            array.push({
+              element: document,
+              event: 'scroll',
+              handler: function(event) {
+                this.close();
+              }.bind(this)
+            });
+          }
 
           return array;
         },
