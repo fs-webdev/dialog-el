@@ -249,7 +249,7 @@ document.body.appendChild(fsDialog);
           _overlay: {
             type: Object,
             value: function(){
-              return this.querySelector('#_overlay');
+              return this._querySelector('#_overlay');
             }
           },
           /** A property for selecting the content div of the dialog.
@@ -259,7 +259,7 @@ document.body.appendChild(fsDialog);
           _content: {
             type: Object,
             value: function(){
-              return this.querySelector('#_content');
+              return this._querySelector('#_content');
             }
           }
         },
@@ -809,6 +809,12 @@ document.body.appendChild(fsDialog);
             if (focusableChildren[0]) focusableChildren[0].focus();
             event.preventDefault();
           }
+        },
+        _querySelector: function(selector){
+          if(this.shadowRoot){
+            return this.shadowRoot(selector);
+          }
+          return this.querySelector(selector);
         }
       });
 
