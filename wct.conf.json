@@ -6,51 +6,57 @@
     "sauce": {
       "browsers": [
         {
-          "browserName":  "internet explorer",
-          "platform":     "Windows 8.1",
-          "version":      "11"
-        },
-        {
           "browserName":  "safari",
-          "platform":     "OS X 10.11",
-          "version":      "10"
+          "platform":     "OS X 10.13",
+          "version":      "11.1"
         },
         {
           "browserName":  "chrome",
-          "platform":     "Linux"
+          "platform":     "OS X 10.13"
         },
         {
           "browserName":  "firefox",
-          "platform":     "Linux"
+          "platform":     "OS X 10.13"
         }
       ]
     },
-    "istanbul": {
+    "istanbub": {
       "dir": "./reports/coverage",
       "reporters": ["text", "text-summary", "lcov"],
       "include": [
-        "**/fs-common-dialog-eol.html",
-        "**/fs-dialog-eol.html"
+        "**/*.html",
+        "**/*.js"
       ],
       "exclude": [
+        "**/*polyfill*",
         "**/bin/*",
         "**/bower_components/**/*",
         "**/demo/*",
         "**/locales/*",
+        "**/node_modules/**/*",
         "**/reports/*",
         "**/test/*"
       ],
       "thresholds": {
         "global": {
-          "statements": 0,
-          "branches": 0,
-          "functions": 0
+          "statements": 80,
+          "branches": 60,
+          "functions": 85,
+          "lines": 80
         }
       }
     },
-    "size-limit": {
-      "path": "fs-common-dialog-eol.html",
-      "limit": "165 KB"
-    }
+    "size-limit": [
+      {
+        "path": "fs-common-dialog-eol.html",
+        "limitNoPolymer": "80 KB",
+        "limitNoExternals": "10 KB"
+      },
+      {
+        "path": "fs-dialog-eol.html",
+        "limitNoPolymer": "10 KB",
+        "limitNoExternals": "5 KB"
+      }
+    ]
   }
 }

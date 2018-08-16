@@ -1,8 +1,8 @@
 {
   "name": "dialog-el",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "homepage": "https://github.com/fs-webdev/dialog-el",
-  "description": "A WebComponent for accesible dialogs and modals",
+  "description": "A WebComponent for accesible dialogs and modals (DEPRECATED)",
   "main": "fs-dialog-eol.html",
   "keywords": [
     "modal",
@@ -30,11 +30,19 @@
     "web-component-tester": "git+https://github.com/t2ym/web-component-tester#^6.0.2"
   },
   "ignore": [
-    ".*",
-    "bin/",
-    "bin/*",
-    "test/",
-    "test/*",
-    "wct.conf.json"
-  ]
+    "**/.*",
+    "**/node_modules",
+    "**/bower_components",
+    "**/components",
+    "**/demo",
+    "**/test",
+    "gulpfile.js",
+    "package.json",
+    "src/",
+    "src/*",
+    "wct.*.json"
+  ],
+  "resolutions": {
+    "fs-dialog": "^2.2.2"
+  }
 }

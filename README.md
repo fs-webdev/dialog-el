@@ -1,6 +1,8 @@
-[![Code Climate](https://codeclimate.com/repos/58ae483561b7e20291002125/badges/a91d10f1774530536589/gpa.svg)](https://codeclimate.com/repos/58ae483561b7e20291002125/feed) [![Test Coverage](https://codeclimate.com/repos/58ae483561b7e20291002125/badges/a91d10f1774530536589/coverage.svg)](https://codeclimate.com/repos/58ae483561b7e20291002125/coverage) [![Issue Count](https://codeclimate.com/repos/58ae483561b7e20291002125/badges/a91d10f1774530536589/issue_count.svg)](https://codeclimate.com/repos/58ae483561b7e20291002125/feed) [![Build Status](https://travis-ci.org/fs-webdev/dialog-el.svg?branch=master)](https://travis-ci.org/fs-webdev/dialog-el)
+[![Code Climate](https://codeclimate.com/repos/58ae483561b7e20291002125/badges/a91d10f1774530536589/gpa.svg)](https://codeclimate.com/repos/58ae483561b7e20291002125/feed) [![Test Coverage](https://codeclimate.com/repos/58ae483561b7e20291002125/badges/a91d10f1774530536589/coverage.svg)](https://codeclimate.com/repos/58ae483561b7e20291002125/coverage) [![Issue Count](https://codeclimate.com/repos/58ae483561b7e20291002125/badges/a91d10f1774530536589/issue_count.svg)](https://codeclimate.com/repos/58ae483561b7e20291002125/feed) [![Build Status](https://travis-ci.com/fs-webdev/dialog-el.svg?branch=master)](https://travis-ci.com/fs-webdev/dialog-el)
 
 # &lt;dialog-el&gt; and &lt;fs-dialog-eol&gt;
+
+> DEPRECATED
 
 This repo is a Custom Element for creating accessible dialogs/modals It is heavily inspired by Polymer's [paper-dialog](https://github.com/PolymerElements/paper-dialog) and the [A11y Dialog](https://github.com/edenspiekermann/a11y-dialog) fork from Edenspiekermann.
 

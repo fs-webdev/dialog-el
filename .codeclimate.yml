@@ -1,16 +1,57 @@
----
-engines:
-  csslint:
-    enabled: true
-  duplication:
+version: "2"
+checks:
+  argument-count:
     enabled: true
     config:
-      languages:
-        javascript:
-          mass_threshold: 100
+      threshold: 4
+  complex-logic:
+    enabled: true
+    config:
+      threshold: 4
+  file-lines:
+    enabled: true
+    config:
+      threshold: 750
+  method-complexity:
+    enabled: true
+    config:
+      threshold: 6
+  method-count:
+    enabled: true
+    config:
+      threshold: 20
+  method-lines:
+    enabled: true
+    config:
+      threshold: 50
+  nested-control-flow:
+    enabled: true
+    config:
+      threshold: 6
+  return-statements:
+    enabled: true
+    config:
+      threshold: 4
+  similar-code:
+    enabled: true
+    config:
+      threshold: 100
+  identical-code:
+    enabled: true
+    config:
+      threshold: 100
+prepare:
+  fetch:
+  - url: "https://raw.githubusercontent.com/standard/eslint-config-standard/master/eslintrc.json"
+    path: ".eslint-config-standard.json"
+plugins:
+  babel-eslint:
+    enabled: true
+  csslint:
+    enabled: true
   eslint:
     enabled: true
-    channel: "eslint-3"
+    channel: "eslint-4"
     config:
       extensions:
         - .html
@@ -43,18 +84,44 @@ engines:
             Bad merge detected by one or more of the following strings of the form: "<<<<<<< Updated upstream", "=======", ">>>>>>> Stashed changes". In all likelihood, this will result in syntax errors when attempting to run your application.
   markdownlint:
     enabled: true
+    checks:
+      MD008:
+        enabled: false
+      MD013:
+        enabled: false
+      MD014:
+        enabled: false
+      MD015:
+        enabled: false
+      MD016:
+        enabled: false
+      MD017:
+        enabled: false
+      MD023:
+        enabled: false
+      MD024:
+        enabled: false
+      MD026:
+        enabled: false
+      MD029:
+        enabled: false
+      MD033:
+        enabled: false
+      MD034:
+        enabled: false
+      MD036:
+        enabled: false
   shellcheck:
     enabled: true
-ratings:
-  paths:
-  - "**.html"
-  - "**.css"
-  - "**.js"
-exclude_paths:
-- ".*"
-- bower_components/
-- build/
-- dist/
-- node_modules/
-- "**/reports/**/*"
-- "**/test/**/*"
+exclude_patterns:
+  - ".*"
+  - bower_components/
+  - build/
+  - dist/
+  - node_modules/
+  - src/
+  - "**/*-polyfill.js"
+  - "**/*min.*"
+  - "**/reports/**/*"
+  - "**/test/**/*"
+  - "**/vendor/**/*"
